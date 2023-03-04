@@ -3,10 +3,14 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 
 import json
+import os
 from random import choice
 
 from app.color_blind_html import generate_html, landing_page
 from app.notifier import Notifier
+
+ws = os.getenv('WS', 'ws://127.0.0.1:8080/notsober/ws')
+ws_type = os.getenv('WS_TYPE', 'ws')
 
 with open('all_combinations.json', 'r') as f:
     all_combinations = json.load(f)
@@ -28,9 +32,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-ws_type, ws = ['ws', 'ws://127.0.0.1:8080/notsober/ws']
-# ws_type, ws = ['wss', 'wss://gametable-xolpakqy5q-ez.a.run.app/notsober/wss']
 
 @app.get("/color_blind", response_class=HTMLResponse)
 async def read_item():

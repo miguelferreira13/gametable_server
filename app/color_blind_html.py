@@ -14,25 +14,31 @@ def generate_html(text, text_color, background_color):
                         100% {{ transform: rotate(0deg); }}
                         }}
                 div {{
+                    display: table-cell;
                     animation: tilt-shaking 0.3s infinite;
                     position: absolute;
-                    top:0;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
+                    # top:0;
+                    # bottom: 0;
+                    # left: 0;
+                    # right: 0;
+                    padding: 10px;
                     margin: auto;
                     border-radius: 25px;
                     border: 2px solid #5A5A5A;
                     width: 90%;
                     height: 90%;
                     background-color: {background_color};
+                    }}
+                p {{
+                    # line-height: normal;
+                    # display: inline-block;
+                    # vertical-align: middle;
                     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
                     text-align: center;
                     font-weight: 1000;
-                    font-size: 10em;
-                    vertical-align: middle;
+                    font-size: 20vw;
                     color: {text_color};
-                    }}
+                }}
 
             </style>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -41,7 +47,7 @@ def generate_html(text, text_color, background_color):
         </head>
         <body>
             <div id="mydiv">
-                {text}
+                <p>{text}</p>
             </div>
         </body>
 
