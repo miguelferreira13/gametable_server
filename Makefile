@@ -3,4 +3,4 @@ PROJECT=game-table-379523
 
 deploy:
 	 gcloud builds submit --tag gcr.io/${PROJECT}/${IMAGE}
-	 gcloud run deploy gametable --image gcr.io/${PROJECT}/${IMAGE} --regio europe-west4 --platform managed
+	 gcloud run deploy gametable --image gcr.io/${PROJECT}/${IMAGE} --region europe-west4 --platform managed
